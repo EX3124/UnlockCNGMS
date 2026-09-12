@@ -9,7 +9,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "unlock.cn.gms"
+        applicationId = "io.github.ex3124.unlockcngms"
         minSdk = 24
         targetSdk = 37
         versionCode = 1
