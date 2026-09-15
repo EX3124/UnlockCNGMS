@@ -1,0 +1,28 @@
+name: Android CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 拉取仓库
+      uses: actions/checkout@v7.0.1
+
+    - name: 安装JDK
+      uses: actions/setup-java@v6.0.1
+      with:
+        java-version: latest
+        distribution: temurin
+
+    - name: 构建
+      run: |
+        chmod +x gradlew
+        ./gradlew build
+
+    - name: 上传构建结果
+      uses: actions/upload-artifact@v7.0.1
+      with:
+        name: output
+        path: ./app/build/outputs/apk/*
